@@ -29,7 +29,7 @@
 
             if (distance < StopRadius)
             {
-                return null;
+                targetSpeed = 0.0f;
             }
 
             if (distance > SlowRadius)
