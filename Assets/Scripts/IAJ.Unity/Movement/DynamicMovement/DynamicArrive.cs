@@ -15,6 +15,7 @@
 
         public DynamicArrive()
         {
+            this.MovingTarget = new KinematicData();
             MaxSpeed = 20.0f;
             StopRadius = 3.5f;
             SlowRadius = 5.0f;
@@ -31,8 +32,7 @@
             {
                 targetSpeed = 0.0f;
             }
-
-            if (distance > SlowRadius)
+            else if (distance > SlowRadius)
             {
                 targetSpeed = MaxSpeed;
             }
@@ -41,7 +41,7 @@
                  targetSpeed = MaxSpeed * (distance / SlowRadius);
             }
 
-            this.Target.velocity = direction.normalized * targetSpeed;
+            this.MovingTarget.velocity = direction.normalized * targetSpeed;
 
 
             return base.GetMovement();

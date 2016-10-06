@@ -11,16 +11,16 @@
 
         public float TimeToTargetSpeed { get; set; }
 
-        //public KinematicData MovingTarget { get; set; }
+        public KinematicData MovingTarget { get; set; }
 
         public DynamicVelocityMatch()
         {
-            this.TimeToTargetSpeed = 0.5f;
+            this.TimeToTargetSpeed = 0.1f;
         }
         public override MovementOutput GetMovement()
         {
             var output = new MovementOutput();
-            output.linear = (this.Target.velocity - this.Character.velocity)/this.TimeToTargetSpeed;
+            output.linear = (this.MovingTarget.velocity - this.Character.velocity)/this.TimeToTargetSpeed;
 
             if (output.linear.sqrMagnitude > this.MaxAcceleration*this.MaxAcceleration)
             {
